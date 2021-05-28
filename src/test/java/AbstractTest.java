@@ -33,15 +33,29 @@ public abstract class AbstractTest {
 
 	public void getBrowserFromProperty() {
 		String BROWSER = System.getProperty("browser");
-		if(BROWSER == "chrome") {
+		switch (BROWSER) {
+		case "chrome":
 			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
 			driver = new ChromeDriver();
-		} else if(BROWSER == "firefox") {
+			break;
+		case "firefox":
 			System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
 			driver = new FirefoxDriver();
-		} else if(BROWSER == "edge") {
+			break;
+		case "edge":
 			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
 			driver = new EdgeDriver();
+			break;
 		}
+//		if(BROWSER == "chrome") {
+//			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
+//			driver = new ChromeDriver();
+//		} else if(BROWSER == "firefox") {
+//			System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
+//			driver = new FirefoxDriver();
+//		} else if(BROWSER == "edge") {
+//			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
+//			driver = new EdgeDriver();
+//		}
 	}
 }

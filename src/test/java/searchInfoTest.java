@@ -79,7 +79,8 @@ public class searchInfoTest extends AbstractTest {
 
 	@Before
 	public void setup() {
-		selectBrowser(browser);
+//		selectBrowser(browser);
+		getBrowserFromProperty();
 	}
 
 	@Test
@@ -113,7 +114,7 @@ public class searchInfoTest extends AbstractTest {
 			pageItem.setList();
 			compareList(pageItem.getListStats(), itemsList[i-1]);
 			driver.navigate().back();
-			Thread.sleep(4000);
+			Thread.sleep(2000);
 		}
 		/* ------------ Page de l'element ----------------- */
 

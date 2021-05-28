@@ -3,7 +3,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 public abstract class AbstractTest {
 
 	protected EBrowser browser = EBrowser.chrome;// chrome par défaut
@@ -29,6 +28,24 @@ public abstract class AbstractTest {
 			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
 			// Initialisation du navigateur Chrome
 			driver = new EdgeDriver();
+		}
+	}
+
+	public void getBrowserFromProperty() {
+		String BROWSER = System.getProperty("browser");
+		switch (BROWSER) {
+		case "chrome":
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
+		case "firefox":
+			System.setProperty("webdriver.gecko.driver", "src/main/resources/driver/geckodriver.exe");
+			driver = new FirefoxDriver();
+			break;
+		case "edge":
+			System.setProperty("webdriver.edge.driver", "src/main/resources/driver/msedgedriver.exe");
+			driver = new EdgeDriver();
+			break;
 		}
 	}
 }
